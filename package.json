@@ -1,0 +1,22 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "My blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbotalla/myBlog.git"
+  },
+  "author": "Fabrizio Botalla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbotalla/myBlog/issues"
+  },
+  "homepage": "https://github.com/fbotalla/myBlog#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
