@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(() =>{
+            $('#sendRequest').click(() =>{
+                var e = document.getElementById("projects");
+                var id = e.options[e.selectedIndex].value;
+                console.log(id);
+               $.ajax({
+                url:'account?project_id=' + id,
+                type: 'POST',                  
+                dataType: 'json',
+                success: res => {
+                    console.log(res.image);
+                     $('#status').html('Name:' + res.name +'<br>' + 'Language ' + res.languange 
+                     + '<br>' + res.description + '<br><br>' + '<video controls autoplay><source src="../' + res.image +'" type ="video/mp4"></video>'
+
+                     
+                 
+                     )},
+                    error: res=>{
+                        $('#status').html('Select a valid project from the dropdown');
+                    }         
+               });
+            });
+        });
+    </script>
+
+<style>
+    video{
+        width: 500px;
+        height: 500px;
+    }
+</style>
+
+
+</head>
+<body>
+
+    <form action="">
+
+        <label for="projects">Select one to view</label>
+        <select name="projects" id="projects">
+
+            <option value="0">Select a project that you would like to view</option>
+            <option value="1">MathProof</option>
+        </select>
+       
+       
+    </form>
+    <button id="sendRequest">submit</button>
+
+    <div id="status">
+    
+    </div>
+    
+    
+</body>
+</html>

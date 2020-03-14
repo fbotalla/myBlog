@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/fbotalla/myBlog#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "path": "^0.12.7",
+    "pg": "^7.18.2",
+    "postgres": "^1.0.2",
+    "startbootstrap-clean-blog": "^5.0.8"
   }
 }
