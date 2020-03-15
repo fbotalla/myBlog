@@ -23,8 +23,6 @@ INSERT INTO project(name,languange,image,description) VALUES ('MathProof','Java'
 interface in which they could play and learn. This app, written in Java, was a 3 months long effort. Hope you enjoy it!');
 
 
-SELECT person_id, name,last_name, email,username FROM person WHERE person_id = 1;
-
 CREATE USER pro_user WITH PASSWORD 'default';
 GRANT SELECT, INSERT, UPDATE ON person TO pro_user;
 GRANT SELECT, INSERT, UPDATE ON project TO pro_user;
