@@ -14,7 +14,10 @@ app.use(express.static("public"))
 // app.set("views","display")
 // app.set("view engine", "ejs");
 
-const port = process.env.port || 8000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 
 // app.use(express.static("public"))
 // app.set("views","display")
