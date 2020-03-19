@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage </title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 
     <script>
@@ -20,8 +22,8 @@
                 dataType: 'json',
                 success: res => {
                     console.log(res.image);
-                     $('#status').html('Name:' + res.name +'<br>' + 'Language ' + res.languange 
-                     + '<br>' + res.description + '<br><br>' + '<video controls autoplay><source src="../' + res.image +'" type ="video/mp4"></video>'
+                     $('#status').html('<br> Name:' + res.name +'<hr>' + 'Language: ' + res.languange 
+                     + '<hr>' + res.description + '<hr>' + '<video controls autoplay><source src="../' + res.image +'" type ="video/mp4"></video>'
 
                      
                  
@@ -39,29 +41,34 @@
         width: 500px;
         height: 500px;
     }
+    body{
+        background-color: rgb(201, 199, 199);
+    }
 </style>
 
 
 </head>
 <body>
-
+<div class="col-md-offset-5"></div>
+    <h1 class="col-md-2 col-md-offset-5">Blojects</h1>
+    <h3 class="col-md-2 col-md-offset-5">(Blog of Projects)</h3>
+</div>
+<div class="col-md-2 col-md-offset-5">
     <form action="">
-
         <label for="projects">Select one to view</label>
-        <select name="projects" id="projects">
+        <select name="projects" id="projects"  class="form-control">
 
-            <option value="0">Select a project that you would like to view</option>
+            <option value="0">Select a project </option>
             <option value="1">MathProof</option>
+            <option value="2">BallTalla Academy</option>
+            <option value="3">AJAX Registrations</option>
         </select>
-       
-       
     </form>
-    <button id="sendRequest">submit</button>
-
-    <div id="status">
+    <br><button id="sendRequest"  class="col-md-offset-5">submit</button>
+   
+</div>
+    <div id="status" class="col-md-2 col-md-offset-5"></div>
     
-    </div>
-    
-    
+   
 </body>
 </html>
