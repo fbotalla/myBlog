@@ -16,6 +16,14 @@ CREATE TABLE project(
     description TEXT NOT NULL
 );
 
+
+CREATE TABLE comments(
+    comment_id SERIAL PRIMARY KEY,
+    project_id INT NOT NULL,
+    comment TEXT NOT NULL,
+    FOREIGN KEY (project_id) REFERENCES project (project_id)
+);
+
 INSERT INTO person (name, last_name,email,username,password) VALUES ('Test', 'TestLastName', 'testing@gmail.com', 'tester', 'default');
 INSERT INTO person (name, last_name,email,username,password) VALUES ('Second', 'Tester', 'second@gmail.com', 'secontest', 'default');
 
@@ -31,9 +39,19 @@ gathers information from a user, writes it to a file and then it reads the file 
 Hope you like it!');
 
 
+INSERT INTO comments(project_id, comment) VALUES('1','Great Job');
+
+SELECT comment FROM COMMENTS WHERE project_id = 1;
+
+DELETE FROM comments WHERE comment_id = 5;
+
+
 CREATE USER pro_user WITH PASSWORD 'default';
 GRANT SELECT, INSERT, UPDATE ON person TO pro_user;
 GRANT SELECT, INSERT, UPDATE ON project TO pro_user;
+GRANT SELECT, INSERT, UPDATE ON comments TO pro_user;
+
+GRANT USAGE, SELECT ON SEQUENCE comments_comment_id_seq TO pro_user;
 
 UPDATE project
 SET image = 'mathproof.mp4'

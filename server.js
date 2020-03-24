@@ -46,7 +46,40 @@ app.post("/account", (req,res)=>{
             res.json(result.rows[0]);
         }
     });
+})
 
+app.post("/getComments",(req,res) =>{
+    var id= req.query.project_id;
+    console.log("Comment id= " + id);
+    pool.query('SELECT comment FROM comments WHERE project_id =' + id, (err,result) =>{
+
+        if(err){
+            return console.log(err);
+        }else{
+            res.json(result.rows);
+        }
+    });
+
+})
+
+app.post("/addComment", (req,res)=>{
+    var id = req.query.project_id;
+    console.log("ID is: " + id);
+    var comment = req.query.comment;
+    console.log("Comment is: " +comment);
+
+    const query = {
+        text: 'INSERT INTO comments (project_id,comment) VALUES($1, $2)', 
+        values: [id,comment],
+    }
+    pool.query(query, (err,result)=>{
+        if(err){
+            return console.log(err);
+        }else{
+            console.log('Inserted')
+
+        }
+    });
 })
 
 // app.get("/account", getInfo);

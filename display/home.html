@@ -23,18 +23,58 @@
                 success: res => {
                     console.log(res.image);
                      $('#status').html('<br> Name:' + res.name +'<hr>' + 'Language: ' + res.languange 
-                     + '<hr>' + res.description + '<hr>' + '<video controls autoplay><source src="../' + res.image +'" type ="video/mp4"></video>'
-
-                     
-                 
+                     + '<hr>' + res.description + '<hr>' + '<video controls autoplay><source src="../' + res.image +'" type ="video/mp4"></video><hr>'
                      )},
                     error: res=>{
-                        $('#status').html('Select a valid project from the dropdown');
+                        $('#status').html('<hr>' +'Select a valid project from the dropdown'+'<hr>');
                     }         
                });
+
+               $.ajax({
+                   url:'getComments?project_id=' +id,
+                   type: 'POST',
+                   dataType: 'json',
+                   success: res => {
+                       if(res.length > 0){
+                       var elements = $();
+                       for(x = 0; x < res.length;x++){
+                            elements = elements.add('<p>Comment #'+(x+1)+': '+res[x].comment+'</p><br>');
+                       }
+                       console.log(res);
+                       $('#allComments').html("");
+                       $('#allComments').append(elements);
+                    }else{
+                        $('#allComments').html("No comments yet! Add one!");
+                    }
+                   }
+               })
+            });
+
+            $('#addComment').click(()=>{
+            console.log("Wer are in")
+            var e = document.getElementById("projects");
+            var id = e.options[e.selectedIndex].value;
+            console.log(id);
+          
+            var comment = document.getElementById("comments").value;
+            console.log(comment);
+
+            $('#allComments').append('<p>'+comment+'</p><br>');
+
+            $.ajax({
+                url:'addComment?project_id='+id+'&comment='+comment,
+                type: 'POST',
+                success :res =>{
+                    console.log("Comment inserted");
+                   
+                }
+
             });
         });
+     });
     </script>
+
+
 
 <style>
     video{
@@ -43,6 +83,13 @@
     }
     body{
         background-color: rgb(201, 199, 199);
+    }
+
+    p:nth-of-type(odd) {
+        color: blue;
+    }
+    p:nth-of-type(even) {
+        color: red;
     }
 </style>
 
@@ -69,6 +116,23 @@
 </div>
     <div id="status" class="col-md-2 col-md-offset-5"></div>
     
-   
+    <div id="allComments" class="col-md-2 col-md-offset-5"></div>
+
+<div class="col-md-2 col-md-offset-5">
+  <form action="">
+      <hr>
+      <label for="comments">Please select a project and leave a comment </label>
+      <textarea name="comments" id="comments" cols="30" rows="5"></textarea>
+  </form>
+  <br><button id="addComment"  class="col-md-offset-5">Comment</button>
+
+</div>
+
+
+
+
+
+
 </body>
+
 </html>
