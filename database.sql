@@ -55,6 +55,9 @@ SELECT comment FROM COMMENTS WHERE project_id = 1;
 
 DELETE FROM comments WHERE comment_id = 5;
 
+DELETE FROM comments WHERE comment_id > 0;
+
+
 DELETE FROM person WHERE person_id > 0;
 
 
