@@ -1,3 +1,3 @@
-This is a Blog containing some of my latest projects. 
-This is also my first project in Node
+This is a Blog containing some of my latest projects. <br>
+This is also my first project in Node.<br>
 Written in NodeJS
