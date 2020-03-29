@@ -24,6 +24,8 @@ CREATE TABLE comments(
     FOREIGN KEY (project_id) REFERENCES project (project_id)
 );
 
+SELECT * FROM person;
+
 INSERT INTO person (name, last_name,email,username,password) VALUES ('Test', 'TestLastName', 'testing@gmail.com', 'tester', 'default');
 INSERT INTO person (name, last_name,email,username,password) VALUES ('Second', 'Tester', 'second@gmail.com', 'secontest', 'default');
 
@@ -39,11 +41,21 @@ gathers information from a user, writes it to a file and then it reads the file 
 Hope you like it!');
 
 
+SELECT comment,username FROM comments WHERE project_id =1;
+
+-- add this to Heroku!
+ALTER table comments
+ADD COLUMN username TEXT;
+
+AlTER TABLE
+-- to here
 INSERT INTO comments(project_id, comment) VALUES('1','Great Job');
 
 SELECT comment FROM COMMENTS WHERE project_id = 1;
 
 DELETE FROM comments WHERE comment_id = 5;
+
+DELETE FROM person WHERE person_id > 0;
 
 
 CREATE USER pro_user WITH PASSWORD 'default';
@@ -52,6 +64,7 @@ GRANT SELECT, INSERT, UPDATE ON project TO pro_user;
 GRANT SELECT, INSERT, UPDATE ON comments TO pro_user;
 
 GRANT USAGE, SELECT ON SEQUENCE comments_comment_id_seq TO pro_user;
+GRANT USAGE, SELECT ON SEQUENCE person_person_id_seq TO pro_user;
 
 UPDATE project
 SET image = 'mathproof.mp4'

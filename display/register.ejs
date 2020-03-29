@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../endpoints.js"></script>
+   
+</head>
+<body>
+
+<h1 style="text-align: center;">Welcome to my Blog</h1>
+
+<div style="margin-right: 20%; margin-left:20%">
+    <h2>Please register here</h2>
+    <div class="form-group">
+        <form action="./checkUser" method="POST">
+
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" required>
+
+        <label for="last_name">Lastname</label>
+        <input type="text"  class="form-control" name="last_name" id="last_name" required>
+
+        <label for="username">Username</label>
+        <input type="text"  class="form-control" name="username" id="username" required>
+
+        <label for="email">Email</label>
+        <input type="text"  class="form-control" name="email" id="email" required >
+
+        <label for="password">Password</label>
+        <input type="password"  class="form-control" name="password" id="password" required>
+
+        <br><button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <br><p id="results" style="color: red;"><%=error%></p> 
+    </div>
+</div>
+
+ <hr>
+
+<div style="margin-right: 20%; margin-left:20%">
+    <h2>Already Registered? Sign in here</h2>
+    <div class="form-group"></div>
+        <form action="./login" method="POST">
+        <label for="email">Email</label>
+        <input type="text"  class="form-control" name="email" id="email" required >
+
+        <label for="password">Password</label>
+        <input type="password"  class="form-control" name="password" id="password" required>
+
+        <br><button type="submit"class="btn btn-primary">Login</button>
+        </form>
+        <br><p id="results" style="color: red;"><%=errorLogin%></p>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

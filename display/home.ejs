@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../endpoints.js"></script>
+
+</head>
+<body>
+<div class="col-md-offset-5"></div>
+
+    <h1 class="col-md-2 col-md-offset-5">Blojects</h1>
+    <h3 class="col-md-2 col-md-offset-5">(Blog of Projects)</h3>
+    <h4 class="col-md-2 col-md-offset-5" id="user" value = "<%=person%>">Welcome <%=person%></h4>
+</div>
+<div class="col-md-2 col-md-offset-5">
+
+    <form action="">
+        <label for="projects">Select one to view</label>
+        <select name="projects" id="projects"  class="form-control">
+
+            <option value="0">Select a project </option>
+            <option value="1">MathProof</option>
+            <option value="2">BallTalla Academy</option>
+            <option value="3">AJAX Registrations</option>
+        </select>
+    </form>
+    <br><button id="sendRequest"  class="col-md-offset-5">submit</button>
+   
+</div>
+    <div id="status" class="col-md-2 col-md-offset-5"></div>
+    <div id="allComments" class="col-md-2 col-md-offset-5"></div>
+<div class="col-md-2 col-md-offset-5">
+
+  <form action="">
+      <hr>
+      <label for="comments">Please select a project and leave a comment </label>
+      <textarea name="comments" id="comments" cols="30" rows="5"></textarea>
+  </form>
+  <br><button id="addComment"  class="col-md-offset-5">Comment</button>
+
+</div>
+
+
+
+</body>
+</html>
